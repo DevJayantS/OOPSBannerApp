@@ -1,32 +1,67 @@
+/**
+* OOPSBannerApp UC6 - 00PS Banner Application (Use Case 6)
+*
+* This use case extends UC5 by implementing a modular approach to generate each
+* letter's pattern through dedicated methods. This enhances code reusability and
+* maintainability by separating pattern generation logic from the main display logic.
+*
+* @author Jayant Singh
+* @version 7.0
+*/
+
 public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        String[] lines = {
+        String[] o = getOPattern();
+        String[] p = getPPattern();
+        String[] s = getSPattern();
 
-            String.join("",
-                "  *****  ", "  *****  ", " ******  ", "  *****  "),
-            String.join("",
-                " **   ** ", " **   ** ", " **   ** ", " **   ** "),
+        String[] banner = new String[7];
 
-            String.join("",
-                "**     **", "**     **", " **   ** ", " **      "),
+        for (int i = 0; i < 7; i++) {
+            banner[i] = String.join("   ", o[i], o[i], p[i], s[i]);
+        }
 
-            String.join("",
-                "**     **", "**     **", " ******  ", "  *****  "),
-
-            String.join("",
-                "**     **", "**     **", " **      ", "      ** "),
-
-            String.join("",
-                " **   ** ", " **   ** ", " **      ", " **   ** "),
-
-            String.join("",
-                "  *****  ", "  *****  ", " **      ", "  *****  ")
-        };
-
-        for (String line : lines) {
+        for (String line : banner) {
             System.out.println(line);
         }
     }
+
+    public static String[] getOPattern() {
+        return new String[]{
+                "  *****  ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                "  *****  "
+        };
+    }
+
+    public static String[] getPPattern() {
+        return new String[]{
+                "  *****  ",
+                " *     * ",
+                " *     * ",
+                "  *****  ",
+                " *       ",
+                " *       ",
+                " *       "
+        };
+    }
+
+    public static String[] getSPattern() {
+        return new String[]{
+                "  *****  ",
+                " *       ",
+                " *       ",
+                "  *****  ",
+                "       * ",
+                "       * ",
+                "  *****  "
+        };
+    }
 }
+
